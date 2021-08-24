@@ -8,10 +8,11 @@
   "files": [
     "/dist/",
     "!*.ts.map",
+    "!*.js.map",
     "!*.tsbuildinfo",
-    "!/dist/**/__tests__/",
-    "!/dist/**/__mocks__/",
-    "!/dist/**/__snapshops__/"
+    "!**/__tests__/",
+    "!**/__mocks__/",
+    "!**/__snapshops__/"
   ],
   "dependencies": {
     "@nrwl/devkit": "^12.7.2"

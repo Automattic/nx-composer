@@ -1,0 +1,11 @@
+{
+	"name": "nx-php/package-a",
+	"description": "A dummy configuration file for tests.",
+	"require": {
+		"nx-php/package-b": "1.0.0",
+		"external/dependency": "1.0.0"
+	},
+	"require-dev": {
+		"developer/dependency": "1.0.0"
+	}
+}
