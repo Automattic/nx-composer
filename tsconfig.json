@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		// Source Configuration
+		"rootDir": "src",
+		"outDir": "dist",
+
+		// Output Configuration
+		"target": "es2019",
+		"module": "commonjs",
+		"sourceMap": true,
+		"declaration": true,
+		"incremental": true,
+
+		// Type Configuration
+		"strict": true,
+		"noUnusedLocals": true,
+		"noImplicitReturns": true,
+		"skipLibCheck": true
+	},
+	"include": [ "src/**/*" ],
+	"exclude": [ "node_modules" ]
+  }
