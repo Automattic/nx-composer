@@ -32,8 +32,7 @@ export class ComposerConfig {
 	public constructor( jsonPath: string ) {
 		this.filePath = jsonPath;
 
-		const f: string = readFileSync( jsonPath, 'utf8' );
-		this.cache = JSON.parse( f );
+		this.cache = JSON.parse( readFileSync( jsonPath, 'utf8' ) );
 	}
 
 	/**
