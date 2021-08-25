@@ -1,12 +1,13 @@
 {
-  "name": "@automattic/nx-php",
+  "name": "@automattic/nx-composer",
   "license": "GPL-2.0-or-later",
   "version": "0.0.0",
-  "description": "An Nx plugin for interacting with PHP projects.",
+  "description": "An Nx plugin for interacting with PHP Composer projects.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "/dist/",
+    "/schemas/",
     "!*.ts.map",
     "!*.js.map",
     "!*.tsbuildinfo",
@@ -14,6 +15,7 @@
     "!**/__mocks__/",
     "!**/__snapshops__/"
   ],
+  "executors": "./executors.json",
   "dependencies": {
     "@nrwl/devkit": "^12.7.2"
   },

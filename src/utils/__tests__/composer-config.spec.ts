@@ -19,10 +19,10 @@ describe( 'ComposerConfig', () => {
 		);
 		const dependencies = config.getDependencies();
 
-		expect( config.getName() ).toStrictEqual( 'nx-php/package-a' );
+		expect( config.getName() ).toStrictEqual( 'nx-composer/package-a' );
 
 		expect( dependencies.size ).toEqual( 3 );
-		expect( dependencies ).toContain( 'nx-php/package-b' );
+		expect( dependencies ).toContain( 'nx-composer/package-b' );
 		expect( dependencies ).toContain( 'external/dependency' );
 		expect( dependencies ).toContain( 'developer/dependency' );
 	} );

@@ -1,0 +1,9 @@
+{
+	"executors": {
+		"exec": {
+			"implementation": "./dist/executors/exec",
+			"schema": "./schemas/executors/exec.json",
+			"description": "Execute a command using composer exec"
+		}
+	}
+}

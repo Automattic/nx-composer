@@ -1,4 +1,4 @@
-import { execFileSync } from 'child_process';
+import { spawnSync } from 'child_process';
 
 /**
  * An interface for the result of a command execution.
@@ -29,29 +29,20 @@ export class ComposerRunner {
 	/**
 	 * Executes a composer command and returns the output or error.
 	 *
-	 * @param {string}         command  The composer command to execute.
-	 * @param {Array.<string>} [params] The parameters to pass to the composer command.
+	 * @param {string}         directory The directory we want to execute the command in.
+	 * @param {string}         command   The composer command to execute.
+	 * @param {Array.<string>} [params]  The parameters to pass to the composer command.
 	 */
-	public execute( command: string, params: string[] = [] ): ComposerResult {
-		try {
-			const output = execFileSync(
-				this.composerPath,
-				[ command, ...params ],
-				{
-					encoding: 'utf8',
-					stdio: 'ignore',
-				}
-			);
+	public execute(
+		directory: string,
+		command: string,
+		params: string[] = []
+	): ComposerResult {
+		const output = spawnSync( this.composerPath, [ command, ...params ], {
+			cwd: directory,
+			encoding: 'utf8',
+		} );
 
-			return { error: false, output };
-		} catch ( e ) {
-			let output = '';
-
-			if ( e && e.message ) {
-				output = e.message;
-			}
-
-			return { error: true, output };
-		}
+		return { error: output.status !== 0, output: output.stdout };
 	}
 }

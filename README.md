@@ -1,3 +1,3 @@
-# nx-php
+# nx-composer
 
-A plugin to use [PHP](https://www.php.net/) in an [Nx](https://nx.dev/) workspace.
+A plugin to use [PHP's Composer](https://getcomposer.org/) in an [Nx](https://nx.dev/) workspace.

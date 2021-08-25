@@ -1,8 +1,8 @@
 {
-	"name": "nx-php/package-a",
+	"name": "nx-composer/package-a",
 	"description": "A dummy configuration file for tests.",
 	"require": {
-		"nx-php/package-b": "1.0.0",
+		"nx-composer/package-b": "1.0.0",
 		"external/dependency": "1.0.0"
 	},
 	"require-dev": {
