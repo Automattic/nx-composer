@@ -14,6 +14,8 @@ interface RunScriptExecutorOptions {
 /**
  * An executor for running composer commands.
  *
+ * Note: The function is exported as the default because that's what Nx is looking for.
+ *
  * @param {RunScriptExecutorOptions} options The options for the executor.
  * @param {ExecutorContext}          context The context for the execution.
  */

@@ -4,6 +4,8 @@ import { DependencyBuilder } from './utils/dependency-builder';
 /**
  * Adds Composer dependencies to Nx's project graph.
  *
+ * Note: The name of this function is important; Nx is specifically looking for it!
+ *
  * @param {ProjectGraph}                 graph   The graph to process.
  * @param {ProjectGraphProcessorContext} context The context for the graph we are generating.
  */
