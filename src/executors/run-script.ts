@@ -5,20 +5,20 @@ import { ComposerRunner } from '../utils/composer-runner';
 /**
  * An interface describing this executor's schema.
  */
-interface ExecExecutorOptions {
+interface RunScriptExecutorOptions {
 	readonly composerPath: string;
-	readonly command: string;
+	readonly script: string;
 	readonly options: string[];
 }
 
 /**
  * An executor for running composer commands.
  *
- * @param {ExecExecutorOptions} options The options for the executor.
- * @param {ExecutorContext}     context The context for the execution.
+ * @param {RunScriptExecutorOptions} options The options for the executor.
+ * @param {ExecutorContext}          context The context for the execution.
  */
-export default async function execExecutor(
-	options: ExecExecutorOptions,
+export default async function runScriptExecutor(
+	options: RunScriptExecutorOptions,
 	context: ExecutorContext
 ): Promise< { success: boolean } > {
 	if ( ! context.projectName ) {
@@ -33,8 +33,8 @@ export default async function execExecutor(
 
 	// Execute the command using composer.
 	const runner = new ComposerRunner( options.composerPath );
-	const result = runner.execute( projectPath, 'exec', [
-		options.command,
+	const result = runner.execute( projectPath, 'run-script', [
+		options.script,
 		...options.options,
 	] );
 

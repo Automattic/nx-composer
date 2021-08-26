@@ -1,0 +1,25 @@
+{
+	"$schema": "http://json-schema.org/schema",
+	"type": "object",
+	"cli": "nx",
+	"properties": {
+		"composerPath": {
+			"description": "The path to a composer executable that we can pass script to. Defaults to global 'composer'.",
+			"type": "string",
+			"default": "composer"
+		},
+		"script": {
+			"description": "The script to pass to composer.",
+			"type": "string"
+		},
+		"options": {
+			"description": "The options to pass to the script.",
+			"type": "array",
+			"items": {
+				"type": "string"
+			},
+			"default": []
+		}
+	},
+	"required": [ "script" ]
+  }

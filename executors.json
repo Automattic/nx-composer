@@ -4,6 +4,11 @@
 			"implementation": "./dist/executors/exec",
 			"schema": "./schemas/executors/exec.json",
 			"description": "Execute a command using composer exec"
+		},
+		"run-script": {
+			"implementation": "./dist/executors/run-script",
+			"schema": "./schemas/executors/run-script.json",
+			"description": "Execute a script using composer run-script"
 		}
 	}
 }

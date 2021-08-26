@@ -38,11 +38,42 @@ export class ComposerRunner {
 		command: string,
 		params: string[] = []
 	): ComposerResult {
-		const output = spawnSync( this.composerPath, [ command, ...params ], {
-			cwd: directory,
-			encoding: 'utf8',
-		} );
+		try {
+			const result = spawnSync(
+				this.composerPath,
+				[ command, ...params ],
+				{
+					cwd: directory,
+					encoding: 'utf8',
+				}
+			);
 
-		return { error: output.status !== 0, output: output.stdout };
+			// For successful executions, all we need to do is return the output.
+			if ( ! result.status && ! result.error ) {
+				return { error: false, output: result.stdout };
+			}
+
+			// Clean up the output a little bit for consistency.
+			let output = '';
+			if ( result.stderr ) {
+				output += result.stderr.trim();
+			}
+			if ( result.stdout ) {
+				output += result.stdout.trim();
+			}
+
+			// Fall back to the error object when nothing else was given.
+			if ( ! output && result.error ) {
+				output += result.error.message;
+			}
+
+			return { error: true, output };
+		} catch ( e ) {
+			if ( e instanceof Error ) {
+				return { error: true, output: e.message };
+			}
+
+			throw e;
+		}
 	}
 }
