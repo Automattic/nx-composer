@@ -23,7 +23,7 @@ describe( 'ComposerConfig', () => {
 
 		expect( dependencies.size ).toEqual( 3 );
 		expect( dependencies ).toContain( 'nx-composer/package-b' );
-		expect( dependencies ).toContain( 'external/dependency' );
-		expect( dependencies ).toContain( 'developer/dependency' );
+		expect( dependencies ).toContain( 'testing-external/dependency' );
+		expect( dependencies ).toContain( 'testing-developer/dependency' );
 	} );
 } );

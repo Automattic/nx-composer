@@ -20,7 +20,7 @@ describe( 'DependencyBuilder', () => {
 	};
 	let projectGraph: ProjectGraph;
 
-	beforeEach( () => {
+	beforeAll( () => {
 		const builder = new ProjectGraphBuilder();
 		builder.addNode( {
 			type: 'library',

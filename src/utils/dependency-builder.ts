@@ -68,38 +68,22 @@ export class DependencyBuilder {
 		}
 
 		const config = new ComposerConfig( composerPath );
-		if ( config.getName().toLowerCase() !== projectName.toLowerCase() ) {
+		if ( config.getName() !== projectName ) {
 			return;
 		}
 
 		// Keep track of the composer dependencies that are associated with a project.
 		const composerDependencies = config.getDependencies();
-		for ( const rawDependency of composerDependencies ) {
-			const dependencyName = this.findProject( rawDependency );
-			if ( dependencyName ) {
-				graphBuilder.addExplicitDependency(
-					projectName,
-					composerPath,
-					dependencyName
-				);
+		for ( const dependencyName of composerDependencies ) {
+			if ( ! this.projects[ dependencyName ] ) {
+				continue;
 			}
+
+			graphBuilder.addExplicitDependency(
+				projectName,
+				composerPath,
+				dependencyName
+			);
 		}
-	}
-
-	/**
-	 * Attempts to find a project name in a case-insensitive way.
-	 *
-	 * @param {string} projectName The name of the project to find.
-	 */
-	private findProject( projectName: string ): string | null {
-		projectName = projectName.toLowerCase();
-
-		for ( const name in this.projects ) {
-			if ( name.toLowerCase() === projectName ) {
-				return name;
-			}
-		}
-
-		return null;
 	}
 }

@@ -1,10 +1,16 @@
 {
 	"name": "nx-composer/package-b",
 	"description": "A dummy configuration file for tests.",
+	"repositories": [
+        {
+            "type": "path",
+            "url": "../package-a"
+        }
+    ],
 	"require": {
-		"external/dependency": "1.0.0"
+		"testing-external/dependency": "1.0.0"
 	},
 	"require-dev": {
-		"developer/dependency": "1.0.0"
+		"testing-developer/dependency": "1.0.0"
 	}
 }
