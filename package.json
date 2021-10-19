@@ -2,7 +2,19 @@
   "name": "@automattic/nx-composer",
   "license": "GPL-2.0-or-later",
   "version": "0.1.0",
+  "author": "Automattic",
   "description": "An Nx plugin for interacting with PHP Composer projects.",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/automattic/nx-composer.git"
+	},
+  "keywords": [
+		"nx",
+		"php"
+	],
+  "publishConfig": {
+		"access": "public"
+	},
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
